@@ -42,10 +42,11 @@ function gerenciarTarefas() {
   
     // 4. Exibindo o array final no console
     console.log(tarefas); // Exibe o array de tarefas restantes após a remoção
-}
+  }
   
-// Chamando a função para executar as ações
-gerenciarTarefas();
+  // Chamando a função para executar as ações
+  gerenciarTarefas();
+  
 
 ---
 
@@ -220,43 +221,48 @@ Verificação do comando "sair": Se o usuário digitar "sair", o loop é interro
 Exibição de mensagens: Mensagens são exibidas para o usuário, indicando se ele acertou o número ou se deseja sair do jogo.
 Código Completo:
 /**
- * Função que simula um jogo de adivinhação.
- * O script pede ao usuário para adivinhar um número entre 1 e 10. O jogo continua até o usuário acertar o número ou digitar "sair".
+ * Função que permite ao usuário jogar um jogo de adivinhação de números.
+ * O usuário deve adivinhar um número entre 1 e 10.
+ * O script continuará pedindo números até que o usuário acerte ou digite "sair".
  * 
- * @returns {void} Não retorna nenhum valor, apenas interage com o usuário e exibe mensagens no console.
+ * @returns {void} Não retorna nenhum valor. Exibe mensagens no console.
  */
 function jogoAdivinhacao() {
-    const numeroCorreto = Math.floor(Math.random() * 10) + 1; // Gera um número aleatório entre 1 e 10
-    let tentativa;
+    // Número a ser adivinhado (pode ser gerado aleatoriamente ou fixo)
+    const numeroCorreto = Math.floor(Math.random() * 10) + 1; // número entre 1 e 10
+    let tentativa; // Variável para armazenar a tentativa do usuário
   
-    // Loop que continua até o usuário acertar ou digitar "sair"
+    // Loop while para continuar pedindo números até o usuário acertar ou sair
     while (true) {
-        // Solicita a entrada do usuário
-        tentativa = prompt("Adivinhe um número entre 1 e 10 (ou digite 'sair' para encerrar):");
-        
-        // Se o usuário digitar "sair", o loop é interrompido
-        if (tentativa.toLowerCase() === "sair") {
-            console.log("Jogo encerrado.");
-            break;
-        }
-        
-        // Converte a tentativa em número
-        tentativa = Number(tentativa);
-        
-        // Verifica se a entrada é um número válido
-        if (isNaN(tentativa) || tentativa < 1 || tentativa > 10) {
-            console.log("Por favor, insira um número válido entre 1 e 10.");
-        } else {
-            // Verifica se o número adivinhado é o correto
-            if (tentativa === numeroCorreto) {
-                console.log("Parabéns! Você acertou o número.");
-                break; // O jogo é encerrado após o acerto
-            } else {
-                console.log("Tente novamente!");
-            }
-        }
-    }
-}
+      // Solicita ao usuário que insira um número ou "sair"
+      tentativa = prompt("Adivinhe um número entre 1 e 10 ou digite 'sair' para sair:");
   
-// Chamando a função para iniciar o jogo
+      // Se o usuário digitar "sair", o loop é interrompido
+      if (tentativa.toLowerCase() === "sair") {
+        console.log("Você saiu do jogo.");
+        break; // Sai do loop
+      }
+  
+      // Converte a tentativa para número
+      tentativa = parseInt(tentativa);
+  
+      // Verifica se a tentativa é válida (um número entre 1 e 10)
+      if (isNaN(tentativa) || tentativa < 1 || tentativa > 10) {
+        console.log("Por favor, digite um número entre 1 e 10.");
+      } else {
+        // Se o número estiver correto
+        if (tentativa === numeroCorreto) {
+          console.log("Parabéns! Você acertou o número!");
+          break; // Sai do loop, já que o usuário acertou
+        } else {
+          console.log("Tente novamente.");
+        }
+      }
+    }
+  }
+  
+  // Chamando a função para iniciar o jogo
+  jogoAdivinhacao();
+  
+Chamando a função para iniciar o jogo
 jogoAdivinhacao();
