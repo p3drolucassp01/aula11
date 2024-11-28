@@ -1,5 +1,5 @@
 O que foi pedido pela questão:
-1. Questão 1:
+Questão 1:
 
 Crie um script que gerencie uma lista de tarefas. O script deve:
 
